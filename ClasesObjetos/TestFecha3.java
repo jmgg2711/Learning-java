@@ -21,6 +21,8 @@ public class TestFecha3 {
         mes = entrada.nextInt();
         anio = entrada.nextInt();
 
+        entrada.close();
+        
         // creo un objeto de la clase Fecha
         Fecha f2 = new Fecha(dia,mes,anio);
 
