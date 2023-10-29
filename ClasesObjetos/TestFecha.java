@@ -39,9 +39,6 @@ public class TestFecha {
         } else {
             System.out.println("f1 y fs Fechas diferentes");
         }
-
-        int numero = f.fechaToDias(27,11,1976);
-        System.out.println("Fecha: " + f.getDia() + "/" + f.getMes() + "/" + f.getAnio() + " = " + numero);
         //#endregion
     }
 }

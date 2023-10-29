@@ -78,72 +78,41 @@ public class Fecha {
         return (dia == otra.dia) && (mes == otra.mes) && (anio == otra.anio);
     }
 
-    // Identifica anio bisiesto para saber si son 365 o 366 dias por anio.
-    private boolean anioBisiesto(int _anio){
-        boolean bBisiesto = false;
-
-        bBisiesto = Year.of(_anio).isLeap();
-        //if(_anio % 4 == 1){
-        //    bBisiesto = true;
-        //}
-
-        return bBisiesto;
+    private int fechaToDias(){
+        return anio * 360 + mes * 30 + dia;
     }
 
-    // Identifica cuantos dias por mes
-    private int mesDias(int _mes, int _anio){
-        int numDias = 0;
-        
-        switch(_mes){
-            case 1: 
-            case 3:
-            case 5:
-            case 7:
-            case 9:
-            case 11:
-                numDias = 31;
-                break;
-            case 4: 
-            case 6:
-            case 8:
-            case 10:
-            case 12: 
-                numDias = 30;
-                break;
-            case 2:
-                if(anioBisiesto(_anio)){
-                    numDias = 29;
-                }
-                break;
-            default: 
-                System.out.println("ERROR: No es posible determinar anio bisiesto");    
+    private void diasToFecha(int i){
+        // dividimos por 360 y obtenemos el anio
+        anio = (int)i/360;
+
+        // del resto de la division anterior podremos obtener el mes y el dia
+        int resto = i % 360;
+
+        // el mes es el resto dividido 30
+        mes = (int)resto/30;
+
+        // el resto de la division anterior son los dias
+        dia = resto % 30;
+
+        // ajuste por si dia quedo en cero
+        if(dia == 0){
+            dia = 30;
+            mes--;
         }
-        
-        return numDias;
-    }
 
-    public int fechaToDias(int _dia, int _mes, int _anio){
-        
-        if(anioBisiesto(_anio)){
-            anio = _anio * 366;
-        } else {
-            anio = _anio * 365;
+        // ajuste por si el mes quedo en cero
+        if(mes == 0){
+            mes = 12;
+            anio--;
         }
-        
-        mes = mesDias(_mes, anio);
-        
-        return anio + mes + _dia;
     }
-
-    // private void diasToFecha(int _dias){
-    //     //se divide por 360 y se obtiene el anio
-    //     int bisiesto;
-
-    //     bisiesto = 
-    //     anio = (int)_dias/360;
-
-    //     // del resto de la division anterior se obtiene el mes y el dia
-
-    // }
-    //#endregion
+        public void addDias(int d){
+            // convierto la fecha a dias y le sumo d
+            int sum = fechaToDias() + d;
+            
+            // la fecha resultante (sum) la separo en dia, mes y anio
+            diasToFecha(sum);
+        }
 }
+
