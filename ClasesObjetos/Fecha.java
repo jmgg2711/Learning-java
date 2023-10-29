@@ -107,7 +107,8 @@ public class Fecha {
             anio--;
         }
     }
-        public void addDias(int d){
+        
+    public void addDias(int d){
             // convierto la fecha a dias y le sumo d
             int sum = fechaToDias() + d;
             
