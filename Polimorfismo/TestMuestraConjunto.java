@@ -1,7 +1,7 @@
 package Polimorfismo;
 
-import ClasesObjetos.*;
-import Herencia.*;
+import ClasesObjetos.Fecha;
+import Herencia.FechaDetallada;
 
 public class TestMuestraConjunto {
     public static void main(String[] args){
