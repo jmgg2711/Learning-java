@@ -16,8 +16,12 @@ public class FechaDetallada extends Fecha{
                                     "Noviembre",
                                     "Diciembre"};
 
-    public FechaDetallada(){
+    public FechaDetallada(int dia, int mes, int anio){
+        super(dia, mes, anio);
+    }
 
+    public FechaDetallada(){
+        super();
     }                                
     public FechaDetallada(String f){
         super(f);
