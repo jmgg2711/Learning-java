@@ -1,7 +1,7 @@
 package Instancias;
 
 import ClasesObjetos.Fecha;
-import Herencia.FechaDetallada;
+//import Herencia.FechaDetallada;
 
 public class Persona {
     private String nombre;          // atributo
